@@ -4,10 +4,11 @@ import (
 	"./dice";
 	"fmt";
 	"flag";
+	"strings";
 )
 
 
 func main() {
 	flag.Parse();
-	fmt.Print(dice.Roll(flag.Arg(0)), "\n");
+	fmt.Print(dice.Roll(strings.ToLower(flag.Arg(0))), "\n");
 }
