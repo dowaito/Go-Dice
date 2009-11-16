@@ -1,11 +1,12 @@
-all: dice
+all: roll
 
-dice: dice.8
-	8l -o dice dice.8
+roll: dice.8 roll.8
+	8l -o roll dice.8 roll.8
 
-dice.8:
+roll.8: roll.go
+	8g roll.go
+
+dice.8: dice.go
 	8g dice.go
-
 clean:
-	rm dice
-	rm dice.8
+	rm *.8 roll
