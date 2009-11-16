@@ -8,12 +8,22 @@ import (
 	"strconv";
 )
 
+const USAGE = "Usage: roll [-f] dice\nWhere dice is of the format 3d6.\nFudge dice are supported as #df\n";
+
 var format = flag.Bool("f", false, "Print roll with list of individual rolls")
 
 func main() {
 	flag.Parse();
 	var dtype, times int;
+
+	if flag.NArg() == 0 {
+		fmt.Print(USAGE);
+		flag.PrintDefaults();
+		return;
+	}
+
 	dtype, times = parseRoll(strings.ToLower(flag.Arg(0)));
+
 
 	if !*format {
 		fmt.Print(dice.Roll(dtype, times), "\n");
