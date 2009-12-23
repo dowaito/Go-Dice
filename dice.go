@@ -5,8 +5,8 @@
 package dice
 
 import (
-	"time";
-	"rand";
+	"time"
+	"rand"
 )
 
 /*
@@ -14,21 +14,21 @@ import (
  Fudge dice are implemented as dype 0.
 */
 func Roll(dtype, times int) int {
-	total := 0;
+	total := 0
 	for i := 0; i < times; i++ {
-		rand.Seed(time.Nanoseconds());
+		rand.Seed(time.Nanoseconds())
 		if dtype == 0 {
-			total += rollFudge(); 
+			total += rollFudge() 
 		}else{
-			total += rand.Intn(dtype) + 1;
+			total += rand.Intn(dtype) + 1
 		}
 	}
 	return total
 }
 
 func rollFudge() int {
-	fudgeDie := [3]int{-1, 0, 1};
-	return fudgeDie[rand.Intn(3)];
+	fudgeDie := [3]int{-1, 0, 1}
+	return fudgeDie[rand.Intn(3)]
 }
 
 
